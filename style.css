@@ -9,6 +9,8 @@ body {
 .person {
     /* border: 1px solid black; */
     margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
 }
 
 .person p {

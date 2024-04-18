@@ -79,17 +79,18 @@
 
         function CalculationTab() {
 
-            const peopleList = ["Mike", "Jim", "Pam", "Dwight"];
+            const peopleList = [new Person("Mike"),new Person("Jim"), new Person("Pam"), new Person("Dwight")];
 
             const [people, setPeople] = React.useState([])
 
             const ui = peopleList.map ( (person) => {
-                return PersonUI(new Person(person))
+                return PersonUI(person)
             })
 
             return <>
+                    <span><input type="text"></input> <input type="button" value="Add"></input> <input type="button" value="Divide"></input> </span>
                     {ui}
-                </>
+                   </>
 
         }
 
@@ -99,7 +100,7 @@
 
             return <div className="person" > 
                     <p> {person.name} </p>
-                    <div ><p>Paid By: </p> <input type="checkbox"></input>  <p>Split With: </p> <input type="checkbox"></input></div>
+                    <div className="person-data" ><p>Paid By: </p> <input type="checkbox"></input>  <p>Split With: </p> <input type="checkbox"></input></div>
                     </div>
         }
 
