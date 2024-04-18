@@ -26,26 +26,36 @@
         class Person {
 
             constructor(name) {
-                this.name;
+                this.name = name;
                 this.transactions = []
             }
         }
     
         function Duckbill() {
+
+
+            return <>
+                    <h1>Duckbill</h1>
+                    { CalculationTab() }
+                    </>
+        }
+
+        function AddPeopleTab() {
+
             const [e, setE] = React.useState([])
 
-            return  <div>
-                        <h1>Duckbill</h1>
-                        { NameInput((name) => { 
-                            e.push(Name(name))
-                            const newE = e.map(element => {
-                                return element;
-                            });
-                            setE(newE)
-                        })}
-                        {e}
-                        <input id="next" type="button" value="Next" onClick = {(event) => console.log(event)}></input>
-                    </div>;
+
+            return <>
+                    { NameInput((name) => { 
+                        e.push(Name(name))
+                        const newE = e.map(element => {
+                            return element;
+                        });
+                        setE(newE)
+                    })}
+                    {e}
+                    <input id="next" type="button" value="Next" onClick = {(event) => console.log(event)}></input>
+                    </>;
         }
 
         function NameInput(onAdd) {
@@ -69,11 +79,28 @@
 
         function CalculationTab() {
 
+            const peopleList = ["Mike", "Jim", "Pam", "Dwight"];
 
             const [people, setPeople] = React.useState([])
 
-            return 
+            const ui = peopleList.map ( (person) => {
+                return PersonUI(new Person(person))
+            })
 
+            return <>
+                    {ui}
+                </>
+
+        }
+
+        function PersonUI(person) {
+
+            console.log(person)
+
+            return <div className="person" > 
+                    <p> {person.name} </p>
+                    <div ><p>Paid By: </p> <input type="checkbox"></input>  <p>Split With: </p> <input type="checkbox"></input></div>
+                    </div>
         }
 
 
