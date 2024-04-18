@@ -14,28 +14,41 @@
     <div id="root"></div>
     <script type="text/babel">
 
-    //   import React, { useEffect, useState } from "react";
+        class Transactions {
+
+            constructor(from, to, amount) {
+                this.from = from;
+                this.to = to;
+                this.amount = amount;
+            }
+
+        }
+        class Person {
+
+            constructor(name) {
+                this.name;
+                this.transactions = []
+            }
+        }
     
-      function MyApp() {
+        function Duckbill() {
+            const [e, setE] = React.useState([])
 
-        const [e, setE] = React.useState([])
+            return  <div>
+                        <h1>Duckbill</h1>
+                        { NameInput((name) => { 
+                            e.push(Name(name))
+                            const newE = e.map(element => {
+                                return element;
+                            });
+                            setE(newE)
+                        })}
+                        {e}
+                        <input id="next" type="button" value="Next" onClick = {(event) => console.log(event)}></input>
+                    </div>;
+        }
 
-
-        return  <div>
-                    <h1>Duckbill</h1>
-                    { NameInput((name) => { 
-                        e.push(Name(name))
-                        const newE = e.map(element => {
-                            return element;
-                        });
-                        setE(newE)
-                    })}
-                    {e}
-                    <input id="next" type="button" value="Next"></input>
-                </div>;
-      }
-
-      function NameInput(onAdd) {
+        function NameInput(onAdd) {
 
         const [name, setName] = React.useState("")
 
@@ -48,17 +61,25 @@
         }
 
         return <input type="text" value={name} onKeyDown = { (event) => add(event) } onChange = { event => { setName(event.target.value)}}></input>;
-      }
+        }
 
-      function Name(name) {
-        return <p>{name}</p>;
-      }
+        function Name(name) {
+            return <p>{name}</p>;
+        }
+
+        function CalculationTab() {
 
 
+            const [people, setPeople] = React.useState([])
 
-      const container = document.getElementById('root');
-      const root = ReactDOM.createRoot(container);
-      root.render(<MyApp />);
+            return 
+
+        }
+
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<Duckbill />);
 
     </script>
     <!--
