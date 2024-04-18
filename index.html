@@ -27,6 +27,7 @@
 
             constructor(name) {
                 this.name = name;
+                this.balance = 0.0;
                 this.transactions = []
             }
         }
@@ -96,11 +97,10 @@
 
         function PersonUI(person) {
 
-            console.log(person)
 
             return <div className="person" > 
                     <p> {person.name} </p>
-                    <div className="person-data" ><p>Paid By: </p> <input type="checkbox"></input>  <p>Split With: </p> <input type="checkbox"></input></div>
+                    <div className="person-data"> <p className="balance">{person.balance}</p> <p>Paid By: </p> <input type="checkbox"></input>  <p>Split With: </p> <input type="checkbox"></input></div>
                     </div>
         }
 
